@@ -1,0 +1,63 @@
+<template name="home">
+  {{#contentFor "headerButtonLeft"}}
+    <button class="button button-clear pull-left" data-ion-menu-toggle="left">
+      {{#if isAndroid}}
+        {{> ionIcon icon="android-more-vertical"}}
+      {{else}}
+        {{> ionIcon icon="navicon"}}
+      {{/if}}
+    </button>
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Home</h1>
+    <button class="button button-clear pull-right" id="btn-routine-submit">
+      {{#if isAndroid}}
+        {{> ionIcon icon="android-add"}}
+      {{else}}
+        {{> ionIcon icon="ios-plus-empty"}}
+      {{/if}}
+    </button>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+
+      <div class="">
+
+        {{#if noRoutines}}
+          <div>
+            <h1>You have no Routine's!</h1>
+          </div>
+        {{/if}}
+
+        {{#ionList}}
+
+          {{#each routines}}
+
+            {{#ionItem}}
+
+              <div class="routine-item">
+                <span class="hidden">asdf1234</span>
+                <div class="routine-item-content pull-left">
+                  <h2>Title</h2>
+                  <p>
+                    Description
+                  </p>
+                </div>
+                <button class="button button-clear pull-right">
+                  {{> ionIcon icon="ios-arrow-right"}}
+                </button>
+              </div>
+
+            {{/ionItem}}
+
+          {{/each}}
+
+        {{/ionList}}
+
+      </div>
+
+    {{/ionContent}}
+  {{/ionView}}
+</template>
